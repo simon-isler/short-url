@@ -47,19 +47,19 @@
 
 <div class="mt-8">
     <form on:submit|preventDefault={shortenUrl}>
-        <div class="flex w-full">
-            <div class="flex items-center bg-gray-100 rounded pl-5 w-2/3">
+        <div class="flex w-full flex-col md:flex-row">
+            <div class="flex items-center bg-gray-100 rounded pl-3 md:pl-5 md:w-2/3">
                 <LinkIcon cssClass="h-5 w-5" />
-                <input type="text" class="h-14 w-full ml-3 bg-gray-100 outline-none text-gray-600" bind:value={targetUrl} on:input={validateUrl} placeholder="Paste your URL here" />
+                <input type="text" class="h-16 md:h-14 w-full mr-3 ml-3 bg-gray-100 outline-none text-gray-600" bind:value={targetUrl} on:change={validateUrl} placeholder="Paste your URL here" />
             </div>
-            <button type="submit" class="bg-blue-dark text-white font-semibold rounded h-14 w-36 ml-14 disabled:opacity-60" disabled={!urlValidity}>
+            <button type="submit" class="bg-blue-dark text-white font-semibold rounded h-14 w-28 md:w-36 mx-auto md:ml-14 mt-3 md:mt-0 disabled:opacity-60" disabled={!urlValidity}>
                 Shorten
             </button>
         </div>
     </form>
 
-    <div class="flex mt-7">
-        <input type="text" value={shortenedUrl} bind:this={output} placeholder="....." class="h-14 w-2/5 pl-3 bg-gray-100 outline-none rounded" readonly>
-        <button class="bg-blue-dark text-white font-semibold rounded h-14 w-28 ml-14 disabled:opacity-60" on:click={copyToClipboard} disabled={!shortenedUrl}>Copy</button>
+    <div class="flex mt-7 flex-col md:flex-row">
+        <input type="text" value={shortenedUrl} bind:this={output} placeholder="....." class="h-16 md:h-14 md:w-2/5 pl-3 bg-gray-100 outline-none rounded" readonly>
+        <button class="bg-blue-dark text-white font-semibold rounded h-14 w-28 mx-auto md:ml-14 mt-3 md:mt-0 disabled:opacity-60" on:click={copyToClipboard} disabled={!shortenedUrl}>Copy</button>
     </div>
 </div>
