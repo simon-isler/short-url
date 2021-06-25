@@ -29,7 +29,7 @@
             urlId = await generateId();
             await urlRef.doc(urlId).set({ targetUrl, usages: 0, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
         }
-        shortenedUrl = `${process.env.APP_HOST}/${urlId}`;
+        shortenedUrl = `${__app.env.APP_HOST}/${urlId}`;
     }
 
     function copyToClipboard() {

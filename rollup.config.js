@@ -7,9 +7,9 @@ import replace from "@rollup/plugin-replace";
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import sveltePreprocess from "svelte-preprocess";
-import { config as configDotenv } from 'dotenv';
+import { config } from 'dotenv';
 
-configDotenv();
+config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -62,11 +62,18 @@ export default {
       browser: true
     }),
     replace({
-      process: JSON.stringify({
+      "process.env.NODE_ENV": process.env.NODE_ENV,
+      __app: JSON.stringify({
         env: {
           isProd: production,
-          NODE_ENV: process.env.NODE_ENV,
           APP_HOST: process.env.APP_HOST,
+          FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+          FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
+          FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+          FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
+          FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+          FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+          FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID
         },
       }),
     }),
