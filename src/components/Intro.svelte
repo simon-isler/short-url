@@ -6,7 +6,7 @@
     <LinkIcon cssClass="h-6 w-6" />
 </div>
 
-<div class="flex flex-wrap md:w-1/3 mt-5">
+<div class="flex flex-wrap md:2/3 mt-5 md:mt-7 lg:mt-5">
     <p class="text-lg">A URL shortener built with modern tools, enabling you to build a
         <span class="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-blue-500">memorable and typable link.</span>
     </p>
