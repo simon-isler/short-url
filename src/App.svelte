@@ -1,20 +1,11 @@
 <script>
-    import { Router, Route } from 'svelte-routing';
     import { FirebaseApp } from 'sveltefire';
     import { firebase } from './firebase';
     import Home from './views/Home.svelte';
-    import Redirect from "./views/Redirect.svelte";
-
-    export let url = '';
 </script>
 
 <FirebaseApp {firebase}>
-    <Router {url}>
-        <Route path="/" component="{Home}" />
-        <Route path="/:id" let:params>
-            <Redirect id={params.id} />
-        </Route>
-    </Router>
+   <Home />
 </FirebaseApp>
 
 <style global>
